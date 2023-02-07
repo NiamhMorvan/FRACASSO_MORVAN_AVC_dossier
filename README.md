@@ -1,7 +1,6 @@
 # FRACASSO_MORVAN_AVC_dossier
 
-# **I. Introduction**
- 
+#  **I. Introduction**
   En 2019 et selon l'organisation mondiale de la santé, 12.22 millions de personnes ont subit un AVC et 6.55 millions de personnes en sont décédés, faisant de ce dernier la deuxième cause de décès dans le monde. L'AVC, accident vasculaire cérébral aussi appellé ataque, apparaît lorsque la circulation sanguine est interrompue par un vaisseau sanguin bouché (AVC ishémique) ou encore un vaisseau sanguin rompu (AVC hémorragique). Les signes d'alertes sont une apparition soudaine et brutale d'une déformation de la bouche, une faiblesse d'un côté du corps ou encore des troubles de la parole. En cas d'attaque, le risque de décès est élevé et si celui-çi n'entraîne pas la mort, il peut causer des repercussions à long terme comme la perte de vue et de parole ou encore une paralysie. Selon l'INSERM, le meilleur moyen de lutter contre les AVC est la prévention dite "première" c'est-à-dire sur le dépistage et le contrôle des risques vasculaires : la pression artérielle, le niveau de cholestérol, le diabète, l'obésité, la consommation d'alcool, le tabagisme ou encore la sédentarité. 
 
 Dans cette analyse, nous allons nous servir d'une base de données issue de Kaggle contenant 40910 observations dans l'objectif de prévoir ces accidents vasculaires cérébraux avec plusieurs facteurs d'influences. Cette base de données contient donc une variable à expliquer qui est de type binaire c'est-à-dire qu'elle prend 1 lorsque l'individu a subit un accident vasculaire cérébral et elle prend 0 lorsque cette personne n'a subit aucun accident. Nous avons également dans cette base dix variables explicatives dont trois variables quantitatives discrètes (l'âge, le taux de glucause et l'indice de masse corporelle), une variable catégorielle (la catégorie socio-professionnelle), et cinq variables binaires (l'hypertension, maladie cardiovasculaire, le fait d'être marié, la localisation, la cigarette).
@@ -9,7 +8,6 @@ Dans cette analyse, nous allons nous servir d'une base de données issue de Kagg
 # **II. Analyse exploratoire**
 Afin d'augmenter nos connaissances sur les variables présentes dans la base de donnée, nous réalisons quelques statistiques descriptives. Dans un premier temps,nous commençons par faire une analyse univariée de notre variable dépendante ainsi que de nos variables explicatives. Dans un deuxième temps, afin
 d'avoir un apriori sur les relations existentes entre les variables explicatives et notre variable à expliquer qualitatives, nous réalisons une analyse bivariée. 
-
 ## *II.1. Analyse univariée* 
 ### II.1.A. Variable dépendante
 
@@ -24,41 +22,41 @@ cette variable n'est pas déséquilibrée puisqu'il y'a autant d'effectifs dans 
 
 Le tableau ci-dessus représente un récapitultaif des statistiques des trois variables explicatives. En effet, il rend compte du nombre total des valeurs que prennent ces variables, de leurs moyennes, médiances et écart-types. Il décrit également les valeurs minimums et maximums ainsi que leurs premiers et troisièmes quartiles. Nous pouvons explorer et analyser chaque variable indépendemment des autres: 
 
-> **L'âge:** Nous nous intéressons d'abord à l'âge de nos individus. Nous remarquons dans un premier temps que la valeur minimum est de -9, ce qui signifie qu'une faute de frappe a été commise puisque nous devrions avoir uniquement des valeurs positives. Cette valeur devra être supprimé par la suite. Ensuite, nous observons un écart assez important entre cette valeur minimum et la valeur maximum ; l'âge maximum est de 103 ans ce qui est probable, néanmoins cette valeur peut-être également et potentiellement considéré comme atypique. Dans un deuxième temps, nous nous intéressons à la médiane et la moyenne de cette variable. La moyenne est de 51,33 tandis que la médiane est de ce qui signifie que la moyenne d'âge des individus est de 51,33 et que 50% des individus ont 52 ans. Si nous nous intéressons de plus près à l'écart entre ces deux mesures nous pouvons dire que s'il existe des valeurs atypiques, celles-çi se trouvent en-dessous de la moyenne puisque cette dernière est en-dessous de la médiane. Intéressons nous désormais aux quartiles : comme le premier quartile est de 35 et le troisième quartile de 68, nous pouvons dire que 25% des individus ont moins de 35 ans et que 75% ont moins de 68 ans. Nous pouvons supposer que plus l'âge est élevé et plus le nombre de personnes subissant un AVC est important. 
+ **L'âge:** Nous nous intéressons d'abord à l'âge de nos individus. Nous remarquons dans un premier temps que la valeur minimum est de -9, ce qui signifie qu'une faute de frappe a été commise puisque nous devrions avoir uniquement des valeurs positives. Cette valeur devra être supprimé par la suite. Ensuite, nous observons un écart assez important entre cette valeur minimum et la valeur maximum ; l'âge maximum est de 103 ans ce qui est probable, néanmoins cette valeur peut-être également et potentiellement considéré comme atypique. Dans un deuxième temps, nous nous intéressons à la médiane et la moyenne de cette variable. La moyenne est de 51,33 tandis que la médiane est de ce qui signifie que la moyenne d'âge des individus est de 51,33 et que 50% des individus ont 52 ans. Si nous nous intéressons de plus près à l'écart entre ces deux mesures nous pouvons dire que s'il existe des valeurs atypiques, celles-çi se trouvent en-dessous de la moyenne puisque cette dernière est en-dessous de la médiane. Intéressons nous désormais aux quartiles : comme le premier quartile est de 35 et le troisième quartile de 68, nous pouvons dire que 25% des individus ont moins de 35 ans et que 75% ont moins de 68 ans. Nous pouvons supposer que plus l'âge est élevé et plus le nombre de personnes subissant un AVC est important. 
 
-> **L'IMC(Indice de masse corporelle):** Nous nous intéressons ensuite à l'indice de masse corporelle de cette population. Comme pour l'âge, nous remarquons un écart très important entre la valeur minimum et la valeur maximum de l'IMC, en effet la valeur la plus petite est de 11,5 tandis que la valeur la plus élevée est de 92. Cette dernière valeur semble trop élevée puisque l'IMC moyen est de 30,4 et nous supposons qu'elle est anormale, nous verrons par la suite s'il faut la supprimer. Si nous nous intéressons à la moyenne et la médiane qui sont respectivement de 30,4 et de 29,4, nous pouvons dire que l'IMC moyen est de 30,4 et 50% des individus ont une indice de masse corporelle à 29,4. En regardant de plus prés cet écart, nous pouvons supposer que s'il existe des valeurs atypiques, celles-çi se trouvent au dessus de la moyenne puisque celle-çi se trouve être au-dessus de la médiane. Intéressons nous désormais aux quartiles : comme le premier quartile est de 25,9 et le troisième quartile de 34,1, nous pouvons dire que 25% des individus ont une masse corporelle de 25,9
+ **L'IMC(Indice de masse corporelle):** Nous nous intéressons ensuite à l'indice de masse corporelle de cette population. Comme pour l'âge, nous remarquons un écart très important entre la valeur minimum et la valeur maximum de l'IMC, en effet la valeur la plus petite est de 11,5 tandis que la valeur la plus élevée est de 92. Cette dernière valeur semble trop élevée puisque l'IMC moyen est de 30,4 et nous supposons qu'elle est anormale, nous verrons par la suite s'il faut la supprimer. Si nous nous intéressons à la moyenne et la médiane qui sont respectivement de 30,4 et de 29,4, nous pouvons dire que l'IMC moyen est de 30,4 et 50% des individus ont une indice de masse corporelle à 29,4. En regardant de plus prés cet écart, nous pouvons supposer que s'il existe des valeurs atypiques, celles-çi se trouvent au dessus de la moyenne puisque celle-çi se trouve être au-dessus de la médiane. Intéressons nous désormais aux quartiles : comme le premier quartile est de 25,9 et le troisième quartile de 34,1, nous pouvons dire que 25% des individus ont une masse corporelle de 25,9
 et que 75% possèdent un indice 34,1. Nous pouvons supposer que plus l'indice de masse corporelle est élevé et plus le nombre de personnes subissant un AVC est important. 
 
-> **Le niveau moyen de glycémie:** Nous nous intéressons dernièrement au niveau moyen de glycémie de notre base de données. Comme pour les deux variables précédentes, nous observons un écart très important entre la valeur minimum et la valeur maximum du niveau moyen de glycémie ; la valeur minimum est de 55,12 tandis que la valeur maximum est de 271,74. Si nous nous intéressons à la moyenne et la médiane qui sont respectivement de 122,07 et de 97,92, nous pouvons dire que que la moyenne du niveau moyen de glycémie est de 122,07 et que 50% possédent un niveau moyen de glycémie égale à 97,92. En regardant de plus prés cet écart, nous pouvons supposer que s'il existe des valeurs atypiques, celles-çi se trouvent au dessus de la moyenne puisque celle-çi se trouve être au-dessus de la médiane. Intéressons nous désormais aux quartiles : comme le premier quartile est de 55,12 et le troisième quartile de 167,59 nous pouvons dire que 25% possèdent un niveau moyen de glycémie de 55,12 tandis que 75% en possèdent un de 167,59. Nous supposons que plus le niveau moyen de glycémie est élevé et plus le nombre de personnes atteintes d'un AVC est élevé. 
+ **Le niveau moyen de glycémie:** Nous nous intéressons dernièrement au niveau moyen de glycémie de notre base de données. Comme pour les deux variables précédentes, nous observons un écart très important entre la valeur minimum et la valeur maximum du niveau moyen de glycémie ; la valeur minimum est de 55,12 tandis que la valeur maximum est de 271,74. Si nous nous intéressons à la moyenne et la médiane qui sont respectivement de 122,07 et de 97,92, nous pouvons dire que que la moyenne du niveau moyen de glycémie est de 122,07 et que 50% possédent un niveau moyen de glycémie égale à 97,92. En regardant de plus prés cet écart, nous pouvons supposer que s'il existe des valeurs atypiques, celles-çi se trouvent au dessus de la moyenne puisque celle-çi se trouve être au-dessus de la médiane. Intéressons nous désormais aux quartiles : comme le premier quartile est de 55,12 et le troisième quartile de 167,59 nous pouvons dire que 25% possèdent un niveau moyen de glycémie de 55,12 tandis que 75% en possèdent un de 167,59. Nous supposons que plus le niveau moyen de glycémie est élevé et plus le nombre de personnes atteintes d'un AVC est élevé. 
 
 ![alt tag](https://user-images.githubusercontent.com/118168120/217350758-a5494419-b534-460a-a95a-8fc0936031e7.png)
 
 La figure ci-desus représente l'histogramme des trois variables quantitatives et les deux prints représentent respectivement le skewness ainsi que le kurtosis de ces features. Le premier est le coefficient d’asymétrie de la distribution, il évalue le défaut de symétrie d’une distribution : il est nul pour une distribution symétrique, positif pour une distribution étalée à droite et négatif pour une distribution étalée à gauche. Le deuxième est le coefficient d’aplatissement de la distribution : il évalue le défaut d’aplatissement d’une distribution. Il est nul pour une distribution normale, négatif pour une distribution moins “aplatie” et positif pour une distribution davantage “aplatie” qu’une distribution normale. Ces trois choses vont nous donner une idée de la distribution des observations correspondant aux trois variables. Globalement, nous observons que seule la variable "âge" semble correctement distribuée, les deux autres variables quant à elles semblent anormalement distribués. À présent, intéressons-nous à chaque variable indépendemment des autres: 
 
-> **L'âge:** Nous nous intéressons d'abord à l'histogramme représentant la distribution de l'âge de nos individus. À priori, la variable semble bien distribuée. Intéréssons nous au skewness et au kurtosis, le premier est de -0.078 et le deuxième est de -0.8, ces deux sont assez proche de 0 mais négatifs ce qui sifnifie que la distribution est légèrement étalée à gauche et moins aplatie que la normale. 
+ **L'âge:** Nous nous intéressons d'abord à l'histogramme représentant la distribution de l'âge de nos individus. À priori, la variable semble bien distribuée. Intéréssons nous au skewness et au kurtosis, le premier est de -0.078 et le deuxième est de -0.8, ces deux sont assez proche de 0 mais négatifs ce qui sifnifie que la distribution est légèrement étalée à gauche et moins aplatie que la normale. 
 
-> **L'IMC(Indice de masse corporelle):** Intéressons nous ensuite à l'histogramme représentant la distribution de l'indice de masse corporelle. À priori, la variable ne semble pas normalement distribuée. Intéréssons nous au skewness et au kurtosis, le premier est de 1,077 et le deuxième est de 2.63, ces deux sont assez loins de 0 et positifs ce qui sifnifie que la distribution est étalée à droite  et moins aplatie que la normale. 
+ **L'IMC(Indice de masse corporelle):** Intéressons nous ensuite à l'histogramme représentant la distribution de l'indice de masse corporelle. À priori, la variable ne semble pas normalement distribuée. Intéréssons nous au skewness et au kurtosis, le premier est de 1,077 et le deuxième est de 2.63, ces deux sont assez loins de 0 et positifs ce qui sifnifie que la distribution est étalée à droite  et moins aplatie que la normale. 
 
-> **Le niveau moyen de glycémie:** Nous nous intéressons dernièrement à l'histogramme représentant la distribution du niveau moyen de glycémie.  À priori, la variable ne semble pas normalement distribuée. Intéréssons nous au skewness et au kurtosis, le premier étant de 0,94 et le deuxième de -0,5, nous pouvons dire que la diribution est étalée à droité et moins aplatie qu'une distribution normale. 
+ **Le niveau moyen de glycémie:** Nous nous intéressons dernièrement à l'histogramme représentant la distribution du niveau moyen de glycémie.  À priori, la variable ne semble pas normalement distribuée. Intéréssons nous au skewness et au kurtosis, le premier étant de 0,94 et le deuxième de -0,5, nous pouvons dire que la diribution est étalée à droité et moins aplatie qu'une distribution normale. 
 
 
 ![alt tag](https://user-images.githubusercontent.com/118168120/217350769-32229fdd-e94b-4b6d-a3d2-f1ff575d92f7.png)
 
 La figure ci-desus représente l'effectif des modalités dans chaque variable catégorielle. Afin de mieux comprendre nos variables explicatives, nous allons expliquer ce que représente les valeurs pour chaque variable.
 
-> **Sex:** Cette première variable représente le sexe de l'individu, celle-çi prend 0 lorsque l'individu est un homme et prend 1 lorsque l'individu est une femme. 
+ **Sex:** Cette première variable représente le sexe de l'individu, celle-çi prend 0 lorsque l'individu est un homme et prend 1 lorsque l'individu est une femme. 
 
-> **Hypertension:** Cette deuxième variable représente le fait qu'un individu fasse de l'hypertension ou non. Cette dernière prend 0 si celui-çi n'en fait pas et prend 1 lorsqu'il en fait. 
+ **Hypertension:** Cette deuxième variable représente le fait qu'un individu fasse de l'hypertension ou non. Cette dernière prend 0 si celui-çi n'en fait pas et prend 1 lorsqu'il en fait. 
 
-> **Heart_disease:** Cette troisième variable représente le fait d'avoir une maladie cardiaque ou non. Cette dernière prend 0 lorsque l'individu n'a pas de maladie cardiaque et prend 1 lorsque ce dernier présente une maladie cardiaque.  
+ **Heart_disease:** Cette troisième variable représente le fait d'avoir une maladie cardiaque ou non. Cette dernière prend 0 lorsque l'individu n'a pas de maladie cardiaque et prend 1 lorsque ce dernier présente une maladie cardiaque.  
 
-> **Ever_married:** Cette quatrième variable représente le fait d'être marié ou non. Celle-çi prend 1 lorsque l'individu est marié et prend 0 lorsqu'il n'est pas marié. 
+ **Ever_married:** Cette quatrième variable représente le fait d'être marié ou non. Celle-çi prend 1 lorsque l'individu est marié et prend 0 lorsqu'il n'est pas marié. 
 
-> **Work_type:** Cette cinquième variable représente la catégorie socio-professionnelle de la personne. Elle prend 0 lorsque l'individu est un enfant, prend 1 lorsque l'individu n'a jamais travaillé, prend 2 lorsque l'individu travaille dans le public, prend 3 lorsque celui-çi est un entrepreneur et enfin prend 4 lorsqu'il travaille dans le privé. 
+ **Work_type:** Cette cinquième variable représente la catégorie socio-professionnelle de la personne. Elle prend 0 lorsque l'individu est un enfant, prend 1 lorsque l'individu n'a jamais travaillé, prend 2 lorsque l'individu travaille dans le public, prend 3 lorsque celui-çi est un entrepreneur et enfin prend 4 lorsqu'il travaille dans le privé. 
 
-> **Residence_type:**  Cette sixième variable représente la localisation de la personne concernée. Elle prend 0 lorsque l'individu habite dans une zone rurale et prend 1 lorsque l'individu habite dans une zone urbaine. 
+ **Residence_type:**  Cette sixième variable représente la localisation de la personne concernée. Elle prend 0 lorsque l'individu habite dans une zone rurale et prend 1 lorsque l'individu habite dans une zone urbaine. 
 
-> **smoking_status:** Cette dernière variable représente le fait que l'individu fume ou non, cette dernière prend 0 lorsque ce denrier ne fume pas et prend 1 lorsque l'individu fume. 
+ **smoking_status:** Cette dernière variable représente le fait que l'individu fume ou non, cette dernière prend 0 lorsque ce denrier ne fume pas et prend 1 lorsque l'individu fume. 
 
 ## *II.2. Analyse bivariée*
 
@@ -68,11 +66,11 @@ Nous commençons par regarder les distributions des variables âge, indice de ma
 
 
 Les graphiques ci-dessus représentent les histogrammes des variables quantitatives. Sur chaque histogramme, nous avons la distinction entre les deux types d’évènements, en jaune sont représentés les cas d'observations ne subissant pas d'AVC et les cas d'AVC sont représentés en violet. Globalement, nous ne voyons pas des différences au sein des distributions pour les deux catégories. Nous regardons les deux distributions de chaque variable indépendemment des autres. 
-> **avg_glucose_level:**Pour la troisième variable, c'est-à-dire le niveau moyen de glycémie, nous remarquons sur la figure les distribution à gauches semblent différentes entre les cas d'AVC et ceux qui n'en subissent pas. En effet, la distribution des cas de non AVC est beaucoup plus élevée que la catégorie des ACV. Si nous nous intéressons à la partie droite de la distribution, nous remarquons qu'à l'inverse la distribution pour les cas d'AVC est plus élevée que celle des non AVC. Nous supposons donc que cette variable apporte de l'information qui permettrait de distinguer les cas d'AVC et les cas sains. 
+ **avg_glucose_level:** Pour la troisième variable, c'est-à-dire le niveau moyen de glycémie, nous remarquons sur la figure les distribution à gauches semblent différentes entre les cas d'AVC et ceux qui n'en subissent pas. En effet, la distribution des cas de non AVC est beaucoup plus élevée que la catégorie des ACV. Si nous nous intéressons à la partie droite de la distribution, nous remarquons qu'à l'inverse la distribution pour les cas d'AVC est plus élevée que celle des non AVC. Nous supposons donc que cette variable apporte de l'information qui permettrait de distinguer les cas d'AVC et les cas sains. 
 
-> **age:** En ce qui concerne la variable age, nous ne remarquons pas de différence significative entre la distribution des cas d'AVC et la distribution des cas inverse. La distribution des cas d'AVC semble un peu plus élevée et plus étalée que celle des cas de non AVC. 
+ **age:** En ce qui concerne la variable age, nous ne remarquons pas de différence significative entre la distribution des cas d'AVC et la distribution des cas inverse. La distribution des cas d'AVC semble un peu plus élevée et plus étalée que celle des cas de non AVC. 
 
-> **bmi:** Nous regardons dans un dernier temps les deux distributions de la variable de l'indice de masse corporelle. Comme pour la variable âge, nous ne voyons pas de différence significative entre les deux catégories même si la catégorie d'AVC semble un peu plus élevée. 
+ **bmi:** Nous regardons dans un dernier temps les deux distributions de la variable de l'indice de masse corporelle. Comme pour la variable âge, nous ne voyons pas de différence significative entre les deux catégories même si la catégorie d'AVC semble un peu plus élevée. 
 
 Nous supposons donc que pour ces deux dernières variables, celles-çi apporteraient peu d'information concernant la distinction entre les deux catégories. Pour aller plus loin dans notre analyse, nous pouvons réaliser des boîtes à moustaches pour chaque variable en fonction des deux catégories. Nous pourrons voir les différences de répartition de façon plus précise.
 
@@ -91,8 +89,10 @@ Cette figure ci-dessus représente le nombre d'effectifs en fonction des variabl
 Après avoir analyser nos variables une à une puis les relations existantes entre ces dernières et la variable à prédire, nous pouvons entamer la préparation de notre base de données. Nous commençons par nettoyer notre base en supprimant les valeurs manquantes ainsi que les valeurs extrêmes afin qu'ils n'aient pas d'influence trop importante dans les estimations futures et nous finissons par dichotomiser notre variable "work_type" ayant cinq modalités. Dans un deuxième temps, nous passons à la sélection des variables en faisant quelques tests statistiques. 
 
 ## *III.1. Nettoyage des données*
+
 Dans cette première petite analyse, nous observons des anomalies en ce qui concerne la variable "sex". Premièrement, nous observons avec la fonction info() que cette variable est de type float alors qu'elle devrait être de type integer, de plus nous constations qu'elle ne comporte que 40907 valeurs numériques alors que les autres variables comportent 40910 valeurs numériques. Deuxièmement, lorsque nous essayons de transformer cette variable sous format integer, cela ne marche pas. Nous supposons que ce problême est dû au fait que cette variable comporte surement des valeurs atypiques. Nous passons donc directement à la suppression des valeurs atypiques dans notre base de données.
 ### III.1.A. Valeurs manquantes
+
 Nous avons vérifier si nos variables comportaient des valeurs manquantes en faisant la somme des NA de chaque colonne. Nous avons donc remarqué que la variable "sex" possèdait trois valeurs manquantes. Nous avons donc supprimer les trois individus ayant n'ayant pas répondu à la variable "sex" et nous sommes arrivé une base de données comportant 40907 observations. La transformation de la variable en integer est devenu possible. À présent, nous passons à l'analyse des points atypiques afin de supprimer les points extrêmes afin qu'ils n'influent pas trop fortement nos estimations.
 
 ### III.1.B. Points atypiques
@@ -129,23 +129,46 @@ La boucle ci-dessus nous permet d'étudier les liens de dépendance entre nos va
 À l'issu de la matrice de corrélation que les relations sont tous inférieures à 1 ce qui sihnififique qu'il existe presque aucune relation entre les variables quantitatives, nous pouvons donc garder les trois variables pour la suite de l'étude. En résumé, nous ne supprimons aucune variable pour la partie modélisation.
 
 ## *III.3. Standardisation*
-Dans cette dernière partie de la préparation de nos données, nous séparons notre jeu de données en base entraînement et base test, ensuite nous nous occupons de la standardisation de notre base d'entraînement afin de mettre toutes les variables sur la même échelle. Nous avons standardisé uniquement nos variables quantitatives puisque les variables binaires sont déjà centrés et réduits. 
+
+Dans cette dernière partie de la préparation de nos données, nous séparons notre jeu de données en base entraînement et base test. Ensuite nous standardisons nos variables explicatives quantitatives de notre jeu d'entrainement et de test. 
+
 # **IV. Modélisation**
 
-Afin d'arriver à cette dernière partie sur la modélisation, nous avons analysé et nettoyé notre base de données tout en standardisant nos données sur la base d'entraînement. Nous pouvons à présent passer à l'estimation de nos modèles. Nous réalisons dans un premier temps des SVM qui sont des machines à vecteurs de supports, nous avons estimé en tout six modèles : régression logistique, SVM linéaire, SVM kernel-linéaire, SVM kernel-polynomial, kernel RBF ainsi qu'un SGD Classifier. Dans un deuxième temps, nous estimons un réseau de neuronne et nous comparons à l'aide de mesures de précisions les résultats de ce modèle avec les SVM. Une fois que nous obtenons les modèles les plus performants, nous effectuons un grid search sur ces derniers afin d'améliorer leurs hyperparamètres et les rendre encore plus performants. 
+Après avoir analysé et nettoyé notre base de données. Nous passons à la modélisation. Nous allons effectué 6 modèles qui sont des algorithmes de classification binaire. Nous déterminerons le/les meilleurs modèles et nous effectuons un grid search sur ces derniers afin d'améliorer leurs performances. 
 
-## *IV.1. SVM*
-## *IV.2. Réseau de neuronnes* 
+## *IV.1. Modèles utilisés*
+Pour distinguer les cas d’AVC, de ceux qui ne le sont pas, nous avons utilisés plusieurs algorithmes de classification binaire. 
 
-## *IV.3. Comparaison des modèles* 
+Premièrement nous avons effectué une régression logistique.
 
-Afin de comparer ces différents modèles, nous utilisons certains indicateurs qui vont nous permettre de déterminer les modèles donnant de meilleures performances que les autres. Nous décidons de prendre comme indicateurs le Recall(qui identifie la proportion de résultats positifs bien identifiés), l’AUC (qui mesure la capacité des modèles à distinguer les prédictions positives et négatives) et le F1-score (qui permet de combiner le recall et la précision). Voiçi les résultats de ces indicateurs pour chaque modèle:
+Ensuite nous avons effectués plusieurs algorithmes (SVM) qui utilisent des vecteurs de supports pour séparer les données en 2 classes. Ces vecteurs sont utilisés pour construire une frontière de décision (hyperplans) qui séparent les classes avec les plus grandes marges possibles. 
+Nous avons effectué 4 sortes de SVM différents :
+-	Un SVM linéaire 
+-	Un SVM à noyau linéaire 
+-	Un SVM à noyau polynomial 
+-	Un SVM à noyau RBF (radial basis function)
+Un SVM linéaire ne transforme pas les données d’entrée et utilise une fonction linéaire pour construire la frontière de décision en utilisant les variables d ‘entrée telles qu’elles. Les SVM à noyau, utilisent un noyau pour transformer les données d’entrée dans un espace de caractéristiques plus élevées, ce qui peut faciliter la séparation des données pour la classification binaire. En effet nous ne sommes pas certaines que nos données soient linéairement séparables. 
+
+De plus nous avons utilisé l’algorithme SGDClassifier, qui est basé sur la descente de gradient stochastique pour trouver les poids optimaux de chaque variables afin de minimiser l’erreur de classification. 
+
+Enfin nous avons utilisé un modèle de réseau de neurones feedforward. 
+
+## *IV.2. Comparaison des modèles* 
+
+Nous avons effectué une première cross validation avec 5 folds pour les 5 modèles suivants : SVM linéaire, les 3 SVM avec noyaux, ainsi que la regression logistique. Le graphique ci-dessous représente le score de précision qui est le nombre de classifications correctes par rapport au nombre total de classifications, pour les 5 folds.
+
+<img width="583" alt="Capture d’écran 2023-02-07 à 23 46 23" src="https://user-images.githubusercontent.com/118168094/217384916-a746d20b-e7cd-496f-8fdd-c08f9a5056e7.png">
+
+Les modèles SVM avec un noyau rbf et polynomial ont les meilleurs score de précision en moyenne sur les 5 folds, mais le modèle svc avec noyau rbf est tout de même le meilleur, avec 78%. Le score de précision n'est pas forcément l'indicateur le plus fiable pour comparer des modèles, ainsi nous avons comparé les modèles avec 3 indicateurs afin de déterminer ceux qui ont les meilleurs performances. Ces indicateurs sont le Recall (qui identifie la proportion de résultats positifs bien identifiés), l’AUC (qui mesure la capacité des modèles à distinguer les prédictions positives et négatives) et le F1-score (qui permet de combiner le recall et la précision).
 
 ![alt tag](https://user-images.githubusercontent.com/118168120/217368307-5110f2b7-f240-406e-bfc8-c658eaf517c9.png)
 
-## *IV.4. Grid Search sur meilleurs modèles* 
+D'après les score dans le tableau, nous avons deux modèles qui ressortent ex aequo avec 78% pour les 3 indicateurs. Premièrement, nous retrouvons le SVM avec noyau rbf, qui était le plus performant en terme de précision précédemment. Puis nous retrouvons le réseau de neuronne.
+
+Ces modèles ont été entainé avec toutes les valeurs d'hyper-paramètres par défauts. Nous allons donc tuner nos 2 meilleurs modèles afin d'améliorer leur performances et de les départagés avec des hyper-paramètres optimaux.
 
 
+## *IV.3. Grid Search sur meilleurs modèles* 
 ![alt tag](https://user-images.githubusercontent.com/118168120/217368328-1c8205ea-bc0f-4cc2-9bfb-f5660293d0f0.png)
 
 ![alt tag](https://user-images.githubusercontent.com/118168120/217368323-3008f5b0-3082-4901-a6e7-dd0e1b3e0957.png)
