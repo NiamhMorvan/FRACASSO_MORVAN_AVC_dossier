@@ -138,9 +138,14 @@ Afin d'arriver à cette dernière partie sur la modélisation, nous avons analys
 ## *IV.2. Réseau de neuronnes* 
 
 ## *IV.3. Comparaison des modèles* 
+
+Afin de comparer ces différents modèles, nous utilisons certains indicateurs qui vont nous permettre de déterminer les modèles donnant de meilleures performances que les autres. Nous décidons de prendre comme indicateurs le Recall(qui identifie la proportion de résultats positifs bien identifiés), l’AUC (qui mesure la capacité des modèles à distinguer les prédictions positives et négatives) et le F1-score (qui permet de combiner le recall et la précision). Voiçi les résultats de ces indicateurs pour chaque modèle:
+
 ![alt tag](https://user-images.githubusercontent.com/118168120/217368307-5110f2b7-f240-406e-bfc8-c658eaf517c9.png)
 
 ## *IV.4. Grid Search sur meilleurs modèles* 
+
+
 ![alt tag](https://user-images.githubusercontent.com/118168120/217368328-1c8205ea-bc0f-4cc2-9bfb-f5660293d0f0.png)
 
 ![alt tag](https://user-images.githubusercontent.com/118168120/217368323-3008f5b0-3082-4901-a6e7-dd0e1b3e0957.png)
